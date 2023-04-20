@@ -2,7 +2,7 @@
 // concept of main() function
 
 // Declaration of the main package
-package c
+package main
 
 // Importing packages
 import (

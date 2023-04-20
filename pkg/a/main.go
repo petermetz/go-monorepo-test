@@ -2,7 +2,7 @@
 // concept of main() function
 
 // Declaration of the main package
-package a
+package main
 
 // Importing packages
 import (
@@ -13,7 +13,7 @@ import (
 )
 
 type SomethingA struct {
-	
+
 }
 
 // Main function
