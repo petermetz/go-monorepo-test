@@ -2,7 +2,7 @@
 // concept of main() function
 
 // Declaration of the main package
-package main
+package a_test
 
 // Importing packages
 import (
@@ -10,6 +10,9 @@ import (
 	"sort"
 	"strings"
 	"time"
+	"testing"
+	
+	"github.com/petermetz/go-monorepo-test/pkg/a"
 )
 
 type SomethingA struct {
@@ -17,7 +20,7 @@ type SomethingA struct {
 }
 
 // Main function
-func main() {
+func TestA(t *testing.T) {
 
 	// Sorting the given slice
 	s := []int{345, 78, 123, 10, 76, 2, 567, 5}
@@ -30,8 +33,10 @@ func main() {
 	// Finding the time
 	fmt.Println("Time: ", time.Now().Unix())
 
+	doSomethingAWouldDo()
 }
 
 func doSomethingAWouldDo() {
 	fmt.Println("This is something only A would do!")
+	a.CallA("A")
 }

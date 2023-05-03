@@ -10,6 +10,9 @@ import (
 	"sort"
 	"strings"
 	"time"
+	
+	"github.com/petermetz/go-monorepo-test/pkg/b"
+	"github.com/petermetz/go-monorepo-test/pkg/a"
 )
 
 type SomethingC struct {
@@ -30,8 +33,14 @@ func main() {
 	// Finding the time
 	fmt.Println("Time: ", time.Now().Unix())
 
+	doSomethingCWouldDo()
 }
 
 func doSomethingCWouldDo() {
-	fmt.Println("This is something only C would do!")
+	fmt.Println("C: This is something only C would do!")
+	fmt.Println("C: Calling A")
+	a.CallA("C")
+	fmt.Println("C: Calling B")
+	b.CallB("C")
+	fmt.Println("C: End")
 }
