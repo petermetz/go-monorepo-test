@@ -7,28 +7,42 @@ ROOT_DIR='.'
 # REPO='github.com/hyperledger/cacti'
 REPO='github.com/petermetz/go-monorepo-test'
 
-
 GOMODULE_PATHS=("pkg/a"
 "pkg/b"
 "pkg/c")
 
+VERSION=${1:-"2.0.0"}
+
+echo "REPO: $REPO"
+echo "VERSION: $VERSION"
+
+MAJOR_VER=""
+if [ "${VERSION:0:1}" -gt "1" ]; then
+  MAJOR_VER="/v${VERSION:0:1}"
+fi
+
+# install go-checksum
+go install github.com/vikyd/go-checksum@latest
+
 for GOMODULE in ${GOMODULE_PATHS[@]}; do
   echo "############# START $GOMODULE ################"
   cd $ROOT_DIR/$GOMODULE
-  GOMOD_DEPS=$(go mod graph | grep "$REPO/$GOMODULE $REPO" | cut -d ' ' -f 2)
+  make run-vendor
+  GOMOD_DEPS=$((go mod graph | grep "$REPO/$GOMODULE$MAJOR_VER $REPO" | cut -d ' ' -f 2) || (make undo-vendor && echo "ERROR: In generating dependency graph" && exit 1))
+  make undo-vendor
   cd - > /dev/null
 
   for GOMOD_DEP in ${GOMOD_DEPS[@]}; do
     echo "--------- START DEP -----------"
-    GOMOD_PATH=$(echo $GOMOD_DEP | cut -d '@' -f 1 | awk -F "$REPO/" '{print $2}')
+    GOMOD_PATH=$(echo $GOMOD_DEP | awk -F "$MAJOR_VER@" '{print $1}' | awk -F "$REPO/" '{print $2}')
     echo DEP: $GOMOD_DEP
     echo DEP: $GOMOD_PATH
     cp $ROOT_DIR/LICENSE $ROOT_DIR/$GOMOD_PATH
     cd $ROOT_DIR/$GOMOD_PATH
-    GOMOD_NAME="$REPO/$GOMOD_PATH"
+    GOMOD_NAME="$REPO/$GOMOD_PATH$MAJOR_VER"
     if [ ! -f VERSION ]; then
       echo "INFO: VERSION absent"
-      popd
+      cd -
       echo "------------ END --------------"
       continue
     fi

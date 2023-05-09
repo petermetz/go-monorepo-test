@@ -2,3 +2,7 @@ github.com/petermetz/go-monorepo-test/pkg/a v0.0.3 h1:WOqPHrUdIcga4l++pduryH5AUQ
 github.com/petermetz/go-monorepo-test/pkg/a v0.0.3/go.mod h1:RQo6xDGsqKTyTk8FFeVGYv/ghsa8JJd1YVfI3QLX3sQ=
 github.com/petermetz/go-monorepo-test/pkg/b v0.0.3 h1:19XAmwfdO2RirUCzVwciPu6tJhPrEllpB6jfYB3b+hg=
 github.com/petermetz/go-monorepo-test/pkg/b v0.0.3/go.mod h1:I8bRnFUDSTzqKrQrPL0EZDz64RwOvBy4g8k823WpHB0=
+github.com/petermetz/go-monorepo-test/pkg/a/v2 v2.0.0 h1:wCbsxePRDyhQD8+R4cmwp+XIBVo3etvPJeotLbbF5p4=
+github.com/petermetz/go-monorepo-test/pkg/a/v2 v2.0.0/go.mod h1:yJk/Dowuph697W1XM8MKRumVAt0MjwswqoMZyYVG2+I=
+github.com/petermetz/go-monorepo-test/pkg/b/v2 v2.0.0 h1:9rcXEOOKDun7Vqcxv0iIXItuPvBsBvu7KHFYsHVE4z8=
+github.com/petermetz/go-monorepo-test/pkg/b/v2 v2.0.0/go.mod h1:wq8oEwCm/bQ7l9Mc/7LVFraolGWtcw9/8O7mqzlIIxw=

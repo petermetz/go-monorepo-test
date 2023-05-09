@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 	
-	"github.com/petermetz/go-monorepo-test/pkg/b"
-	"github.com/petermetz/go-monorepo-test/pkg/a"
+	"github.com/petermetz/go-monorepo-test/pkg/b/v2"
+	"github.com/petermetz/go-monorepo-test/pkg/a/v2"
 )
 
 type SomethingC struct {

@@ -4,7 +4,7 @@ package b
 import (
 	"fmt"
 	
-	"github.com/petermetz/go-monorepo-test/pkg/a"
+	"github.com/petermetz/go-monorepo-test/pkg/a/v2"
 )
 
 func CallB(caller string) {

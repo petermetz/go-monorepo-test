@@ -12,7 +12,7 @@ import (
 	"time"
 	"testing"
 	
-	"github.com/petermetz/go-monorepo-test/pkg/b"
+	"github.com/petermetz/go-monorepo-test/pkg/b/v2"
 )
 
 type SomethingB struct {
